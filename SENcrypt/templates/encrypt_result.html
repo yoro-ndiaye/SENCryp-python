@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Résultat du Chiffrement{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center text-muted mb-4">Résultat du Chiffrement</h2>
+        <div class="border p-3 mb-4 text-white bg-dark">
+          <p class="mb-4 overflow-auto" style="max-height: 400px; max-width: 1000px;">Ciphertext: <span id="ciphertext">{{ result }}</span></p>
+          <button class="btn btn-sm btn-info btn-block copy-button" data-clipboard-target="#ciphertext">Copier dans le presse-papiers</button>
+        </div>
+
+        <h3 class="mb-3 text-muted">Déchiffrer le message :</h3>
+        <button class="btn btn-dark rounded shadow border-none fw-bold"><a class="text-decoration-none text-white"
+          href="{% url 'decrypt' %}">Décrypter</a></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ajoutez le lien vers clipboard.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+
+  <!-- Scripts Bootstrap (assurez-vous d'inclure jQuery et Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Script pour activer la validation des formulaires Bootstrap et l'initialisation de clipboard.js -->
+  <script>
+    // Désactive la validation native de Bootstrap car nous utilisons novalidate sur le formulaire
+    $(document).ready(function() {
+      $('form').submit(function() {
+        if ($(this)[0].checkValidity()) {
+          // Si le formulaire est valide, soumettez-le
+          return true;
+        } else {
+          // Sinon, activez la validation Bootstrap
+          $(this).addClass('was-validated');
+          return false;
+        }
+      });
+
+      // Initialise clipboard.js
+      new ClipboardJS('.copy-button');
+    });
+  </script>
+{% endblock %}

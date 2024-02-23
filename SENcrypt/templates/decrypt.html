@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}decrypt{% endblock %}
+{% block content %}
+<div class="container mt-5 shadow rounded fw-bold">
+  <div class="row shadow">
+    <div class="col-lg-6 ">
+      <h4 class="text-center text-muted p-3">Déchiffrement</h4>
+      <img class="img-fluid " src="{% static 'image/photo1.png' %}" alt="" >
+     </div>
+   <div class="col-lg-6 p-3">
+    <form method="post" action="{% url 'decrypt' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="mb-2 btn btn-dark text-white fw-bold" type="submit">Décrypter</button>
+    </form>
+   </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">t
+    <h1 class="display3">Décrypter en ligne</h1>
+    <p class="text-center display-5 p-5">
+      Cet outil est un outil de décryptage en ligne qui vous permet de décrypter des données avec différents algorithmes de cryptage. </p>
+     <h3 class="display-6"> Comment utiliser cet outil ?</h3>
+      
+     <ol class="text-xl">
+      <li>Sélectionnez l’algorithme qui a été utilisé pour chiffrer vos données.</li>
+      <li>Saisissez le texte chiffré dans la grande zone de texte.</li>
+      <li>Saisissez le mot de passe qui a été utilisé pour chiffrer vos données.</li>
+      <li>Cliquez sur le bouton « Décrypter ».</li>
+      <li>Affichez le résultat du décryptage dans la grande zone de texte sur le côté droit de l’écran.</li>
+      <li>Si une erreur se produit, vérifiez que vos entrées sont correctes et réessayez.</li>
+    </ol>
+  </div>
+</div>
+{% endblock %}

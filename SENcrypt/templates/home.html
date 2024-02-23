@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- Le contenu de votre fichier home.html ici -->
+<div class="container-fluid shadow mb-4">
+  <div class="row shadow">
+    <!-- Colonne pour l'image de fond -->
+    <div class="col-md-6 p-0 ">
+      <div class="d-flex-center ">
+        <!-- Remplacez 'your-image.jpg' par le chemin de votre image de fond -->
+
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'image/photo3.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'image/photo2.png' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'image/back3.png' %}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Colonne pour la description -->
+    <div class="col-md-6 p-5 item-align-center shadow" style="background-color: #C7C8CC;">
+      <div class="d-flex-center p-5">
+        <div class="text-center">
+          <!-- Ajoutez votre contenu de description ici -->
+          <h2 class="text-center bg-white fw-bold shadow">Bienvenu sur notre site de Crytage & dechiffrage des Données</h2><br>
+          <p class="text-center fw-bold bg-white shadow">Sécuriser tes donnés c'est une priorité!</p><br>
+          <button class="btn btn-dark rounded shadow border-none fw-bold"><a class="text-decoration-none text-white"
+              href="{% url 'encrypt' %}">Crypté ton 1er text</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+
+<div class="container">
+  <div class="row">
+    <h1 class="display-2 text-muted text-center">Le Monde Numérique Actuel</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col shadow">
+        <div class="card h-100">
+          <img src="{% static 'image/chiffrer.jpeg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Cryptogaphy</h5>
+            <p class="card-text">
+              La sécurité en ligne est une responsabilité partagée. Protégez-vous et protégez les autres en adoptant des
+              pratiques numériques responsables. Soyez vigilant face aux menaces en ligne, évitez le partage excessif
+              d'informations personnelles et utilisez des mots de passe forts. Ensemble, construisons un environnement
+              en ligne sûr et sécurisé pour tous. <span class="text-primary">#CyberSecAwareness</span> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="{% static 'image/crypt.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Cybersécutity</h5>
+            <p class="card-text">
+              La cybersécurité est cruciale dans notre monde numérique. Protégez-vous contre les cybermenaces en
+              maintenant vos logiciels à jour, en utilisant des mots de passe robustes et en évitant les liens suspects.
+              Soyez conscient des attaques de phishing et préservez votre vie privée en ligne. Ensemble, renforçons
+              notre cybersécurité pour assurer un environnement numérique sûr et fiable. <span
+                class="text-primary">#CyberSecAwareness</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col shadow">
+        <div class="card h-100">
+          <img src="{% static 'image/hacking.png' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hacking</h5>
+            <p class="card-text">
+              La pratique du hacking éthique encourage la compréhension approfondie des systèmes informatiques pour
+              renforcer leur sécurité. Cependant, le hacking malveillant représente une menace sérieuse. Éduquons-nous
+              sur les risques, protégeons nos données, et promouvons l'éthique numérique. La technologie peut être
+              puissante lorsqu'elle est utilisée de manière responsable et positive. <span class="text-primary">
+                #EthicalHacking #CyberEthics</span></p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  {% endblock %}

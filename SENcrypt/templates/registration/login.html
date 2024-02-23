@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 bg-light rounded p-4 shadow">
+      <h3 class="text-center mb-4">Login</h3>
+      <form method="post" action="{% url 'login' %}" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
+          {{ form.username }}
+          <div class="invalid-feedback">
+            {{ form.username.errors }}
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.password.id_for_label }}" class="form-label">{{ form.password.label }}</label>
+          {{ form.password }}
+          <div class="invalid-feedback">
+            {{ form.password.errors }}
+          </div>
+        </div>
+
+        <!-- <div class="mb-3 form-check">
+          {{ form.checkbox }}
+          <label class="form-check-label" for="{{ form.checkbox.id_for_label }}">{{ form.checkbox.label }}</label>
+        </div> -->
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+
+        <p class="mb-0">Vous n'avez pas de compte ? <a href="{% url 'register' %}">Inscrivez-vous ici</a>.</p>
+      </form>
+    </div>
+
+    <div class="col-lg-6">
+      <img class="img-fluid" src="{% static 'image/crypt.jpg' %}" alt="">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

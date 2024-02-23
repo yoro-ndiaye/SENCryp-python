@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}encrypt{% endblock %}
+{% block content %}
+<div class="container mt-5 shadow rounded fw-bold">
+  <div class="row shadow">
+    <div class="col-lg-6 ">
+      <h4 class="text-center text-muted p-3">chiffrement</h4>
+      <img class="img-fluid " src="{% static 'image/photo3.png' %}" alt="" >
+     </div>
+   <div class="col-lg-6 p-3">
+    <form method="post" action="{% url 'encrypt' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="mb-2 btn btn-dark text-white fw-bold" type="submit">Crypter</button>
+    </form>
+   </div>
+   
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <h1 class="display3">Outil de chiffrement en ligne Encrypt</h1>
+    <p class="text-center display-5 p-5">
+      Cet outil de cryptage vous permet de crypter n’importe quelle entrée de texte, garantissant ainsi votre confidentialité et votre sécurité.
+    </p>
+     <h3 class="display-6"> Comment utiliser cet outil ?</h3>
+      
+     <ol class="text-xl">
+      <li>Sélectionnez le type de chiffrement (exemple : AES ou DES) à l’aide de la liste déroulante Type de chiffrement.</li>
+      <li>Saisissez les données (chaîne, texte, json, xml ou autres) que vous souhaitez chiffrer.</li>
+      <li>Entrez une phrase secrète de chiffrement à utiliser pendant le processus de chiffrement.</li>
+      <li>Cliquez sur le bouton « Crypter ».</li>
+      <li>Affichez le résultat du chiffrement dans la grande zone de texte sur le côté droit de l’écran.</li>
+    </ol>
+  </div>
+</div>
+{% endblock %}

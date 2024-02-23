@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 bg-light rounded p-4 shadow">
+      <h3 class="text-center mb-4">Register</h3>
+      <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_username" class="form-label ">Username</label>
+          {{ form.username }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_email" class="form-label">Email address</label>
+          {{ form.email }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password1" class="form-label">Password</label>
+          {{ form.password1 }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_password2" class="form-label">Confirm Password</label>
+          {{ form.password2 }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+
+    <div class="col-lg-6 ">
+      <img class="img-fluid" src="{% static 'image/back3.png' %}" alt="">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
